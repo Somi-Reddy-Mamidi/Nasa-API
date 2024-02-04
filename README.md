@@ -1,12 +1,12 @@
 #                                     NASA APOD Spring API
 This Spring Boot application provides an API endpoint to retrieve NASA's Astronomy Picture of the Day (APOD) using the NASA API. It allows users to fetch APOD data based on parameters such as date, start date, end date, count, and whether to include thumbnails.
 
-Table of Contents
-Controllers
-Models
-Services
-Main Application
-Configuration
+### Table of Contents
+* Controllers
+* Models
+* Services
+* Main Application
+* Configuration
 ## Controllers
 ### NasaApodController
 The NasaApodController class is a Spring RestController responsible for handling incoming HTTP requests related to APOD data. It utilizes the NasaApodService to fetch the data and returns a list of NasaApodResponse objects.
