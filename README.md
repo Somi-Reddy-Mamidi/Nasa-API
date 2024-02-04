@@ -131,4 +131,13 @@ To interact with the NASA APOD API, you can use tools like Postman. Here's an ex
     * **end_date** : End date for a range of APOD entries
     * **count** : Number of entries to fetch
     * **thumbs** : Include thumbnails (true/false)
- 4. **Example URL** : http://localhost:9090/apod?date=2024-02-04&count=5&thumbs=true
+ 4. **Example URL** : http://localhost:9090/apod?date=2024-01-01
+    ![image](https://github.com/Somi-Reddy-Mamidi/Nasa-API/assets/158804084/931277de-8617-48b6-9fab-2bf2b6ca4862)
+* http://localhost:9090/apod?count=10
+  
+![image](https://github.com/Somi-Reddy-Mamidi/Nasa-API/assets/158804084/e036e018-a3ab-4a39-aae9-e653dcabbd23)
+* http://localhost:9090/apod?start_date=2024-01-01&end_date=2024-02-01
+  
+![image](https://github.com/Somi-Reddy-Mamidi/Nasa-API/assets/158804084/aac17384-2552-4693-9668-842683217e9d)
+
+
