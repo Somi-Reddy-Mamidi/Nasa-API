@@ -37,15 +37,16 @@ public class NasaApodService {
                 .queryParam("end_date", end_date)
                 .queryParam("count", count)
                 .queryParam("thumbs", thumbs);
-        
+
 
         // Attempt to fetch as a list first
         try {
+
             ResponseEntity<NasaApodResponse[]> responseEntity = restTemplate.getForEntity(uriBuilder.toUriString ( ), NasaApodResponse[].class);
             return Arrays.stream( responseEntity.getBody () ).toList ();
         } catch (Exception e) {
             try {
-                NasaApodResponse singleResponse = restTemplate.getForObject(apiUrl, NasaApodResponse.class);
+                NasaApodResponse singleResponse = restTemplate.getForObject(uriBuilder.toUriString ( ), NasaApodResponse.class);
                 return Collections.singletonList (singleResponse );
             } catch (Exception ex) {
                 throw new RuntimeException("Error fetching APOD data: " + ex.getMessage(), ex);
