@@ -140,4 +140,22 @@ To interact with the NASA APOD API, you can use tools like Postman. Here's an ex
   
 ![image](https://github.com/Somi-Reddy-Mamidi/Nasa-API/assets/158804084/aac17384-2552-4693-9668-842683217e9d)
 
+#                                     React Nasa API ( React Nasa API code  in template folder )
+## Date 
+When the user submits a date or date range through the form, the handleFormSubmit function is triggered, setting the formSubmitted flag to true. This triggers the useEffect hook, which then calls the fetchData function, making an HTTP request to the specified API endpoint (http://localhost:9090/apod) with the provided parameters (date). The fetched data is then stored in the nasaData state variable, causing a re-render of the component with the updated data displayed on the page.
+![image](https://github.com/Somi-Reddy-Mamidi/Nasa-API/assets/158804084/ef24f6b7-be1f-4669-9237-e53741ca1a02)
+## Start Date & End Date
+
+When the user submits a start date and an end date, the component fetches NASA data between those dates using the provided start and end dates as parameters for the API request, displaying the retrieved data in the component's UI.
+![image](https://github.com/Somi-Reddy-Mamidi/Nasa-API/assets/158804084/4d195782-6eac-4669-bea5-b98363c96688)
+## Count 
+When the user submits the "Count" field, the component triggers a form submission event, setting the formSubmitted state to true. This state change then triggers the useEffect hook, which fetches NASA data from the specified API endpoint with the count parameter included.
+![image](https://github.com/Somi-Reddy-Mamidi/Nasa-API/assets/158804084/21088123-3f2f-4e8f-a18b-1926245bf63f)
+
+
+
+
+
+
+
 
