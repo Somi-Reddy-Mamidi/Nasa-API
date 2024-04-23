@@ -1,43 +1,42 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+var path = require('path');
 
 module.exports = {
-  // Where files should be sent once they are bundled
- // entry: './src/index.js',
- entry: './src/index.js',
- mode: 'development',
- output: {
-  path: __dirname,
-  filename: '../resources/static/built/bundle.js'
-},
-  // webpack 5 comes with devServer which loads in development mode
- devServer: {
-    static: path.resolve(__dirname, 'src'),
-    port: 3000,
-    open: true,
-    hot: true,
-    proxy: [{
-      context: ['/apod'],
-      target: 'http://localhost:9090',
-    }],
-   
- },
-  // Rules of how webpack will take our files, complie & bundle them for the browser 
- module: {
-   rules: [
-     {
-       test: /\.(js|jsx)$/,
-       exclude: /nodeModules/,
-       use: {
-         loader: 'babel-loader'
-       }
-     },
-     {
-       test: /\.css$/,
-       use: [MiniCssExtractPlugin.loader, 'css-loader']
-     }
-   ]
- },
- plugins: [new HtmlWebpackPlugin({ template: './src/index.html' }),new MiniCssExtractPlugin()],
-}
+    entry: './index.js',
+    devtool: 'eval-source-map',
+    cache: true,
+    mode: 'development',
+    output: {
+        path: __dirname,
+        filename: '../resources/static/built/bundle.js'
+    },
+    module: {
+        rules: [
+            {
+                test: path.join(__dirname, '.'),
+                exclude: /(node_modules)/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ["@babel/preset-env", "@babel/preset-react"]
+                    }
+                }]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif|eot|otf|ttf|woff|woff2)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {}
+                    }
+                ]
+            }
+        ]
+    }
+};
