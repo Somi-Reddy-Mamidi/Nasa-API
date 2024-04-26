@@ -1,0 +1,48 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+ Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Fri Apr 26 16:27:02 2024 Eastern Daylight Time elapsed time: 0.340105 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001c0e038f2a0):  JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=17792, stack(0x0000002296f00000,0x0000002297000000)]
+
+
+Current CompileTask:
+C1:    340   36       1       java.lang.String::startsWith (138 bytes)
+
+Stack: [0x0000002296f00000,0x0000002297000000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6734ea]
+V  [jvm.dll+0x7d18f4]
+V  [jvm.dll+0x7d309e]
+V  [jvm.dll+0x7d3703]
+V  [jvm.dll+0x2433c5]
+V  [jvm.dll+0xaa6c0]
+V  [jvm.dll+0xaaa0c]
+V  [jvm.dll+0xb612d]
+V  [jvm.dll+0x15ce0e]
+V  [jvm.dll+0x1690c8]
+V  [jvm.dll+0x1691cb]
+V  [jvm.dll+0x15e961]
+V  [jvm.dll+0x15b8fe]
+V  [jvm.dll+0x149b40]
+V  [jvm.dll+0x132c97]
+V  [jvm.dll+0x13262f]
+V  [jvm.dll+0x132868]
+V  [jvm.dll+0x131d01]
+V  [jvm.dll+0x1339ad]
+V  [jvm.dll+0x224b6e]
+V  [jvm.dll+0x222f15]
+V  [jvm.dll+0x78753c]
+V  [jvm.dll+0x781a7a]
