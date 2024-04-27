@@ -1,42 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import useNASAStore from './NASAStore';
 
 const NasaDataComponent = () => {
   const [date, setDate] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [count, setCount] = useState('');
-  const [nasaData, setNasaData] = useState([]);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  useEffect(() => {
-    if (formSubmitted) {
-      fetchData();
-      setFormSubmitted(false); // Reset form submission flag after data fetch
-    }
-  }, [formSubmitted]);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('/apod', {
-        params: {
-          date: date || '',
-          startdate: startDate || '',
-          enddate: endDate || '',
-          count: count || '',
-          thumbs: true,
-        },
-      });
-      setNasaData(response.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+  const { nasaData, fetchNASAData } = useNASAStore();
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setFormSubmitted(true); // Set formSubmitted flag to true on form submission
+    fetchNASAData(date, startDate, endDate, count); // Pass parameters to fetchNASAData
+    setFormSubmitted(true);
   };
 
   const clearFilters = () => {
@@ -44,6 +22,7 @@ const NasaDataComponent = () => {
     setStartDate('');
     setEndDate('');
     setCount('');
+    setFormSubmitted(false);
   };
 
   return (
